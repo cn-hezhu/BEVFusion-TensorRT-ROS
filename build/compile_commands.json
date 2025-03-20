@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/media/kongquyu/WD_BLACK/bevfusion_ws/build/object_tracking",
+  "command": "/usr/bin/c++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"object_tracking\\\" -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/devel/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/bayestracking/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -std=c++11 -O3 -g -DNDEBUG -fopenmp -pthread -o CMakeFiles/object_tracking.dir/src/object_tracking_node.cpp.o -c /media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracking_node.cpp",
+  "file": "/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracking_node.cpp",
+  "output": "object_tracking/CMakeFiles/object_tracking.dir/src/object_tracking_node.cpp.o"
+},
+{
+  "directory": "/media/kongquyu/WD_BLACK/bevfusion_ws/build/object_tracking",
+  "command": "/usr/bin/c++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"object_tracking\\\" -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/devel/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/bayestracking/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -std=c++11 -O3 -g -DNDEBUG -fopenmp -pthread -o CMakeFiles/object_tracking.dir/src/object_tracking.cpp.o -c /media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracking.cpp",
+  "file": "/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracking.cpp",
+  "output": "object_tracking/CMakeFiles/object_tracking.dir/src/object_tracking.cpp.o"
+},
+{
+  "directory": "/media/kongquyu/WD_BLACK/bevfusion_ws/build/object_tracking",
+  "command": "/usr/bin/c++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"object_tracking\\\" -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/devel/include -I/media/kongquyu/WD_BLACK/bevfusion_ws/src/bayestracking/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -std=c++11 -O3 -g -DNDEBUG -fopenmp -pthread -o CMakeFiles/object_tracking.dir/src/object_tracker/object_tracker.cpp.o -c /media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracker/object_tracker.cpp",
+  "file": "/media/kongquyu/WD_BLACK/bevfusion_ws/src/object_tracking/src/object_tracker/object_tracker.cpp",
+  "output": "object_tracking/CMakeFiles/object_tracking.dir/src/object_tracker/object_tracker.cpp.o"
+}
+]

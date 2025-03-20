@@ -1,0 +1,24 @@
+<launch>
+    <!-- model_name: resnet50int8/resnet50fp16/swint -->
+    <!-- precision: fp16/int8 -->
+    <param name="model_name" type="string" value="resnet50int8" />
+    <param name="precision" type="string" value="int8" />
+
+    <!-- ros topic name -->
+    <param name="topic_cloud"  type="string" value="/velodyne_points" />
+    <param name="topic_img_l"  type="string" value="/img/cam_a" />
+    <param name="topic_img_b" type="string" value="/img/cam_b" />
+    <param name="topic_img_r" type="string" value="/img/cam_c" />
+    <param name="topic_img_f"  type="string" value="/img/cam_d" />
+
+    <!-- bevfusion node -->
+    <node pkg="bevfusion" name="bevfusion_node" type="bevfusion_node" output="screen" />
+
+    <!-- object_tracking node -->
+    <!-- <rosparam command="load" file="$(find object_tracking)/config/object3d_detector.yaml"/>
+    <node pkg="object_tracking" type="object_tracking" name="object_tracking" output="screen"/> -->
+
+    <!-- rviz -->
+    <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find bevfusion)/launch/visualization.rviz" /> -->
+    <node pkg="rviz" name ="rviz_bevfusion_node" type="rviz" respawn="false" output="screen" args="-d $(find bevfusion)/launch/1.rviz"/>
+</launch>

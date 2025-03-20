@@ -1,0 +1,333 @@
+{"Layers": [{
+  "Name": "Reformatting CopyNode for Input Tensor 0 to Transpose_0",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "middle",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "Reformatted Input Tensor 0 to Transpose_0",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x00000000000003ea",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "Transpose_0",
+  "LayerType": "Shuffle",
+  "Inputs": [
+  {
+    "Name": "Reformatted Input Tensor 0 to Transpose_0",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "423",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "ParameterType": "Shuffle",
+  "FirstTranspose": [0,1,3,2],
+  "Reshape": "nbDims=-1",
+  "SecondTranspose": [0,1,2,3],
+  "ZeroIsPlaceholder": 1,
+  "TacticValue": "0x0000000000000001",
+  "StreamId": 0,
+  "Metadata": "[ONNX Layer: Transpose_0]"
+},{
+  "Name": "Conv_3",
+  "LayerType": "CaskConvolution",
+  "Inputs": [
+  {
+    "Name": "423",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "426",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "ParameterType": "Convolution",
+  "Kernel": [1,1],
+  "PaddingMode": "kEXPLICIT_ROUND_DOWN",
+  "PrePadding": [0,0],
+  "PostPadding": [0,0],
+  "Stride": [1,1],
+  "Dilation": [1,1],
+  "OutMaps": 16,
+  "Groups": 1,
+  "Weights": {"Type": "Int8", "Count": 8192},
+  "Bias": {"Type": "Float", "Count": 16},
+  "HasSparseWeights": 0,
+  "HasDynamicFilter": 0,
+  "HasDynamicBias": 0,
+  "HasResidual": 0,
+  "ConvXAsActInputIdx": -1,
+  "BiasAsActInputIdx": -1,
+  "ResAsActInputIdx": -1,
+  "Activation": "NONE",
+  "HasBias": 1,
+  "HasReLU": 0,
+  "TacticName": "sm80_xmma_fprop_implicit_gemm_interleaved_i8f32_i8i32_f32_nchw_vect_c_32kcrs_vect_c_32_nchw_tilesize64x32x64_stage6_warpsize2x1x1_g1_tensor16x8x32_t1r1s1_alignc4",
+  "TacticValue": "0x5e4f6d7c83746fd6",
+  "StreamId": 0,
+  "Metadata": "[ONNX Layer: Conv_3]"
+},{
+  "Name": "Conv_2",
+  "LayerType": "CaskConvolution",
+  "Inputs": [
+  {
+    "Name": "423",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "425",
+    "Location": "Device",
+    "Dimensions": [1,72,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major FP16 format"
+  }],
+  "ParameterType": "Convolution",
+  "Kernel": [1,1],
+  "PaddingMode": "kEXPLICIT_ROUND_DOWN",
+  "PrePadding": [0,0],
+  "PostPadding": [0,0],
+  "Stride": [1,1],
+  "Dilation": [1,1],
+  "OutMaps": 72,
+  "Groups": 1,
+  "Weights": {"Type": "Int8", "Count": 36864},
+  "Bias": {"Type": "Float", "Count": 72},
+  "HasSparseWeights": 0,
+  "HasDynamicFilter": 0,
+  "HasDynamicBias": 0,
+  "HasResidual": 0,
+  "ConvXAsActInputIdx": -1,
+  "BiasAsActInputIdx": -1,
+  "ResAsActInputIdx": -1,
+  "Activation": "NONE",
+  "HasBias": 1,
+  "HasReLU": 0,
+  "TacticName": "sm80_xmma_fprop_implicit_gemm_interleaved_i8f16_i8i32_f32_nchw_vect_c_32kcrs_vect_c_32_nchw_vect_c_32_tilesize64x128x64_stage6_warpsize2x2x1_g1_tensor16x8x32_simple_t1r1s1",
+  "TacticValue": "0x6c336d1b7c64ffa3",
+  "StreamId": 0,
+  "Metadata": "[ONNX Layer: Conv_2]"
+},{
+  "Name": "Conv_1",
+  "LayerType": "CaskConvolution",
+  "Inputs": [
+  {
+    "Name": "423",
+    "Location": "Device",
+    "Dimensions": [1,512,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major Int8 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "424",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "ParameterType": "Convolution",
+  "Kernel": [1,1],
+  "PaddingMode": "kEXPLICIT_ROUND_DOWN",
+  "PrePadding": [0,0],
+  "PostPadding": [0,0],
+  "Stride": [1,1],
+  "Dilation": [1,1],
+  "OutMaps": 16,
+  "Groups": 1,
+  "Weights": {"Type": "Int8", "Count": 8192},
+  "Bias": {"Type": "Float", "Count": 16},
+  "HasSparseWeights": 0,
+  "HasDynamicFilter": 0,
+  "HasDynamicBias": 0,
+  "HasResidual": 0,
+  "ConvXAsActInputIdx": -1,
+  "BiasAsActInputIdx": -1,
+  "ResAsActInputIdx": -1,
+  "Activation": "NONE",
+  "HasBias": 1,
+  "HasReLU": 0,
+  "TacticName": "sm80_xmma_fprop_implicit_gemm_interleaved_i8f32_i8i32_f32_nchw_vect_c_32kcrs_vect_c_32_nchw_tilesize64x32x64_stage6_warpsize2x1x1_g1_tensor16x8x32_t1r1s1_alignc4",
+  "TacticValue": "0x5e4f6d7c83746fd6",
+  "StreamId": 0,
+  "Metadata": "[ONNX Layer: Conv_1]"
+},{
+  "Name": "Reformatting CopyNode for Input Tensor 0 to {ForeignNode[427...Concat_57]}",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "426",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "Outputs": [
+  {
+    "Name": "Reformatted Input Tensor 0 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x00000000000003e8",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "Reformatting CopyNode for Input Tensor 1 to {ForeignNode[427...Concat_57]}",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "425",
+    "Location": "Device",
+    "Dimensions": [1,72,180,180],
+    "Format/Datatype": "Thirty-two wide channel vectorized row major FP16 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "Reformatted Input Tensor 1 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,72,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x00000000000003ea",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "Reformatting CopyNode for Input Tensor 2 to {ForeignNode[427...Concat_57]}",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "424",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "Outputs": [
+  {
+    "Name": "Reformatted Input Tensor 2 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x00000000000003e8",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "{ForeignNode[427...Concat_57]}",
+  "LayerType": "Myelin",
+  "Inputs": [
+  {
+    "Name": "Reformatted Input Tensor 0 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  },
+  {
+    "Name": "Reformatted Input Tensor 1 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,72,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  },
+  {
+    "Name": "Reformatted Input Tensor 2 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1,16,180,180],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "dir_cls_preds",
+    "Location": "Device",
+    "Dimensions": [1000],
+    "Format/Datatype": "Row major linear Int32"
+  },
+  {
+    "Name": "Reformatted Output Tensor 1 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1000,2],
+    "Format/Datatype": "Row major linear FP16 format"
+  },
+  {
+    "Name": "Reformatted Output Tensor 2 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1000,9],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "TacticValue": "0x0000000000000000",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "Reformatting CopyNode for Output Tensor 2 to {ForeignNode[427...Concat_57]}",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "Reformatted Output Tensor 2 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1000,9],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "bbox_pred",
+    "Location": "Device",
+    "Dimensions": [1000,9],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x00000000000003e8",
+  "StreamId": 0,
+  "Metadata": ""
+},{
+  "Name": "Reformatting CopyNode for Output Tensor 1 to {ForeignNode[427...Concat_57]}",
+  "LayerType": "Reformat",
+  "Inputs": [
+  {
+    "Name": "Reformatted Output Tensor 1 to {ForeignNode[427...Concat_57]}",
+    "Location": "Device",
+    "Dimensions": [1000,2],
+    "Format/Datatype": "Row major linear FP16 format"
+  }],
+  "Outputs": [
+  {
+    "Name": "cls_score",
+    "Location": "Device",
+    "Dimensions": [1000,2],
+    "Format/Datatype": "Row major linear FP32"
+  }],
+  "ParameterType": "Reformat",
+  "Origin": "REFORMAT",
+  "TacticValue": "0x0000000000000000",
+  "StreamId": 0,
+  "Metadata": ""
+}],
+"Bindings": ["middle"
+,"cls_score"
+,"dir_cls_preds"
+,"bbox_pred"
+]}

@@ -1,0 +1,8 @@
+prefix=/media/kongquyu/WD_BLACK/bevfusion_ws/install
+
+Name: object_tracking
+Description: Description of object_tracking
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp roslib bayes_tracking autoware_msgs

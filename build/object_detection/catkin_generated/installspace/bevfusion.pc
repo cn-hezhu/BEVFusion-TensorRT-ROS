@@ -1,0 +1,8 @@
+prefix=/media/kongquyu/WD_BLACK/bevfusion_ws/install
+
+Name: bevfusion
+Description: Description of bevfusion
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

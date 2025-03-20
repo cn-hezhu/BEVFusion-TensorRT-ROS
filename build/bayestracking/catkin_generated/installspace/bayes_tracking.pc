@@ -1,0 +1,8 @@
+prefix=/media/kongquyu/WD_BLACK/bevfusion_ws/install
+
+Name: bayes_tracking
+Description: Description of bayes_tracking
+Version: 1.4.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lbayes_tracking
+Requires: 

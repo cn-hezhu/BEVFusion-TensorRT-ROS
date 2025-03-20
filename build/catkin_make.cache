@@ -1,0 +1,2 @@
+autoware_ai_messages:bayestracking:object_detection:object_tracking
+-DCATKIN_DEVEL_PREFIX=/media/kongquyu/WD_BLACK/bevfusion_ws/devel -DCMAKE_INSTALL_PREFIX=/media/kongquyu/WD_BLACK/bevfusion_ws/install -G Unix Makefiles
