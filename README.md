@@ -1,5 +1,5 @@
 # BEVFusion-TensorRT-ROS
-This repository contains sources and model for PointPillars inference using TensorRT.
+This repository contains sources and model for BEVFusion inference using TensorRT.
 
 ## Environments
 To build the bevfusion inference, TensorRT, ROS and CUDA are needed. Our project supports both x86 and arm architectures, and relevant code need to be modified in the CMakeList before compiling.
